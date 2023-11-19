@@ -1,32 +1,32 @@
 // Startup.cs
 
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 
-public class Startup
+namespace dotnetapp.Models
 {
-    public void ConfigureServices(IServiceCollection services)
+    public class Startup
     {
-        // Other configurations...
+        private readonly IConfiguration Configuration;
 
-        services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
 
-        services.AddIdentity<IdentityUser, IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // Existing code...
 
-        // Other configurations...
-    }
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        // Other configurations...
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
-        app.UseAuthentication(); // Enable authentication middleware
+            // Other configurations...
+        }
 
-        // Other configurations...
+        // Other methods...
     }
 }

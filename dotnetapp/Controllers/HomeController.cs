@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-
+using dotnetapp.Models;
 public class HomeController : Controller
 {
     public IActionResult Index()
