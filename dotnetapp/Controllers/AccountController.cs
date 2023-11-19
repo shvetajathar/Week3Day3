@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using dotnetapp.Models;
+namespace dotnetapp.Controllers;
 public class AccountController : Controller
 {
     private readonly UserManager<IdentityUser> _userManager;

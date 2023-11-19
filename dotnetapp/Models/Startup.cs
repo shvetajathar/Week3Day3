@@ -1,6 +1,10 @@
 // Startup.cs
 
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+
+// using Microsoft.Extensions.Configuration;
 
 namespace dotnetapp.Models
 {

@@ -1,7 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using dotnetapp.Models;
+namespace dotnetapp.Controllers;
 public class HomeController : Controller
 {
+
+    private readonly ApplicationDbContext context;
+    public HomeController(ApplicationDbContext _context){
+        context=_context;
+    }
+
     public IActionResult Index()
     {
         // Simulate getting data from a form
